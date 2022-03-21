@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-03-10 23:07:32
- * @LastEditTime: 2022-03-21 18:59:38
+ * @LastEditTime: 2022-03-21 19:14:29
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \myapp\src\01-base\10-todolist.js
@@ -35,9 +35,13 @@ export default class App extends Component {
                     {
                         this.state.list.map((item, index) =>
                             <li key={item.id}>
-                                {item.mytext}
+                                {/* {item.mytext} */}
+                                {/* 富文本展示 */}
+                                <span dangerouslySetInnerHTML={
+                                    { __html: item.mytext }
+                                }></span>
                                 {/* <button onClick={this.handleClick.bind(this, index)}>del</button> */}
-                                <button onClick={() => {
+                                <button button onClick={() => {
                                     this.handleClick(index)
                                 }}>del</button>
                             </li>)
